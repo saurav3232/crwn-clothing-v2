@@ -3,12 +3,16 @@ import { Fragment } from "react";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { UserContext } from "../../contexts/user.context";
 import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
 import "./navigation.styles.scss";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import CartIcon from "../../components/card-icon/card-icon.component";
+import CartDropdown from "../../components/card-dropdown/card-dropdown.component";
 const Navigation = () => {
   const { currentUser 
     // setCurrentUser
   } = useContext(UserContext);
+  const { isCartOpen }=useContext(CartContext);
   // const signOuthandler=async ()=>{
   //   await signOutUser();
   //   setCurrentUser(null);
@@ -33,7 +37,9 @@ const Navigation = () => {
               SignIn
             </Link>
           )}
+          <CartIcon/>
         </div>
+        {isCartOpen && <CartDropdown/>}
       </div>
       <Outlet />
     </Fragment>
