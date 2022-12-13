@@ -17,17 +17,27 @@
     }
 
     .cart-items {
-        height:100%;
-        width:auto;
+        height: 100%;
+        width: auto;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+        // overflow-y: auto;
         overflow: scroll;
-        overflow: hidden;
     }
 
     button {
         margin-top: auto;
         font-size: 12px;
     }
+}
+
+::-webkit-scrollbar {
+    background: white;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 5px;
 }
